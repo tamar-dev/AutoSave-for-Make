@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Autosave Extension</title>
+    <style>
+     body {
+            width: 220px;
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #interval {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #333;
+        }
+
+        #saveSettings {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(180deg, #b55dcd 0, #724ebf 100% );
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        #saveSettings:hover {
+            background: linear-gradient(180deg, #724ebf 0,  #b55dcd 100%);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #b55dcd;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+
+        .switch-label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Auto Save Settings</h1>
+    <label for="interval">Interval (minutes):</label>
+    <input type="number" id="interval" min="0">
+    
+    <div class="switch-label">
+        <span>Enable Auto Save</span>
+        <label class="switch">
+            <input type="checkbox" id="enableAutoSave">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="switch-label">
+        <span>Save Anyway</span>
+        <label class="switch">
+            <input type="checkbox" id="saveAnyway">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <button id="saveSettings">Save</button>
+    <script src="popup.js"></script>
+</body>
+</html>

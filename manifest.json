@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "make Autosave",
+    "version": "1.0",
+    "description": "Automatically save make scenarios",
+    "permissions": ["storage","tabs", "activeTab", "scripting", "alarms", "declarativeContent"],
+    "host_permissions": ["https://eu2.make.com/*/scenarios/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/save16.png",
+        "48": "images/save48.png",
+        "128": "images/save128.png",
+        "512": "images/save128.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://eu2.make.com/*/scenarios/*/edit"],  
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "icons": {
+        "16": "images/save16.png",
+        "48": "images/save48.png",
+        "128": "images/save128.png",
+        "512": "images/save128.png"
+      }
+  }
+  
