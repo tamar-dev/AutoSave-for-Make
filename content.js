@@ -25,7 +25,7 @@ function onLoad() {
     lastSavedTimeElement.style.color = "#666666";
 
     loggerElement = document.createElement("span");
-    loggerElement.style.color = "#000";
+    loggerElement.style.color = "#666666";
 
     container.appendChild(lastSavedTimeElement);
     container.appendChild(loggerElement);
@@ -92,7 +92,7 @@ function runSaveAnyway(shouldRun) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const observer = new MutationObserver(() => {
-        d = document.getElementById("diagram");
+        d = document.querySelector(".content-scenarios");
         if (d) {
             observer.disconnect();
             onLoad();
