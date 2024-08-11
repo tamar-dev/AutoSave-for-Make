@@ -19,7 +19,7 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://eu2.make.com/*/scenarios/*/edit"],  
+        "matches": ["https://eu2.make.com/*/scenarios/*/edit","https://eu2.make.com/*/scenarios/add"],  
         "js": ["content.js"],
         "run_at": "document_start"
       }
